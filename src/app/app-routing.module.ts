@@ -6,6 +6,7 @@ import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: '', pathMatch: 'full'},
   {
     path: 'auto',
     component: AutoComponent,
@@ -18,7 +19,7 @@ const routes: Routes = [
     ],
   },
   { path: 'consulta', component: ConsultaComponent },
-  { path: '**', component: PageNotFoundComponent },
+  { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];
 
 @NgModule({
