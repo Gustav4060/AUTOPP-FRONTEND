@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Confirmación</h2>
+<h3>Está seguro que desea eliminar {{auto.placa}}?</h3>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+<button mat-raised-button color="primary" (click)="eliminar()">
+  <mat-icon>done</mat-icon>
+  Aceptar</button>
+<button mat-raised-button color="accent" (click)="cerrar()">
+  <mat-icon>close</mat-icon>
+  Cancelar</button>
+</div>

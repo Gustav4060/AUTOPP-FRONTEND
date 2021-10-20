@@ -1,0 +1,34 @@
+
+<form class="example-container" [formGroup]="form" #frmAuto="ngForm" (ngSubmit)="operar()">
+
+  <div [hidden]="true">
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="ID" required formControlName="id">
+      </mat-form-field>
+  </div>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="PLACA" minlength="7" maxlength="7"required formControlName="placa">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="COLOR" required formControlName="color">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="MODELO" required formControlName="modelo" >
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="CHASIS" required formControlName="chasis">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="frmAuto.invalid">
+      <mat-icon>done</mat-icon>
+      <span>Aceptar</span>
+  </button>
+  <button mat-raised-button color="accent" routerLink='/auto' type="button">
+      <mat-icon>close</mat-icon>
+      <span>Cancelar</span>
+  </button>
+</form>

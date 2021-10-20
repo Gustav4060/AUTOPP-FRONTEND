@@ -1,0 +1,22 @@
+<mat-toolbar>Consulta Auto Pico y Placa</mat-toolbar>
+
+
+<form class="example-container" [formGroup]="form" #frmAuto="ngForm" (ngSubmit)="consultar()">
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="PLACA" minlength="7" maxlength="7" required formControlName="placa">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput readonly [matDatepicker]="picker" placeholder="Escoger una fecha dd/mm/yyyy"
+    [(ngModel)]="fechaSeleccionada" [min]="maxFecha" formControlName='fecha' >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="frmAuto.invalid">
+      <mat-icon>traffic</mat-icon>
+      <span>Consultar</span>
+  </button>
+
+</form>

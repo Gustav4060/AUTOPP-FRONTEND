@@ -1,0 +1,67 @@
+<mat-toolbar>Registro de Autos</mat-toolbar>
+<router-outlet></router-outlet>
+<div [hidden]="verificarHijos()">
+  <div class="example-container mat-elevation-z8">
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="filtrar($event)" placeholder="Buscar Auto" />
+      </mat-form-field>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="idAuto">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.idAuto }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="placa">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>PLACA</th>
+        <td mat-cell *matCellDef="let element">{{ element.placa }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="color">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>COLOR</th>
+        <td mat-cell *matCellDef="let element">{{ element.color }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="modelo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>MODELO</th>
+        <td mat-cell *matCellDef="let element">{{ element.modelo }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="chasis">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>CHASIS</th>
+        <td mat-cell *matCellDef="let element">{{ element.chasis }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-button
+            color="primary"
+            [routerLink]="['edicion', element.idAuto]"
+          >
+            <mat-icon>ballot</mat-icon>
+          </button>
+          <button mat-button matTooltip="Eliminar"
+          matTooltipClass="example-tooltip-red"
+          aria-label="Button that shows a red tooltip"
+          class="example-button" color="primary" (click)="abrirDialogo(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+    ></mat-paginator>
+  </div>
+</div>
+<button mat-fab color="accent" style="float: right" routerLink="/auto/nuevo">
+  <mat-icon>add</mat-icon>
+</button>

@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Mensaje</h2>
+
+<h3>
+  El Auto con placas {{ consulta.placa }}
+  <h2>{{ consulta.mensaje }}</h2>
+</h3>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="registrarNuevoAuto()"
+    *ngIf="consulta.existeAuto == '0'"
+  >
+  <mat-icon>local_shipping</mat-icon>
+    Registra Nuevo Auto
+  </button>
+  <button mat-raised-button color="accent" (click)="cerrar()">
+    <mat-icon>close</mat-icon>
+    Cerrar</button>
+</div>
